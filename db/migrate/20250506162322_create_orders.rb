@@ -3,7 +3,7 @@ class CreateOrders < ActiveRecord::Migration[8.0]
     create_table :orders, id: :uuid do |t|
       t.string :external_id
       t.datetime :placed_at
-      t.datetime :looked_at
+      t.datetime :locked_at
 
       t.timestamps
     end
