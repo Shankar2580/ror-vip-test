@@ -5,20 +5,28 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version - 3.3.3
 
-* System dependencies
+* System dependencies 
+
+- postresql , sidekiq
 
 * Configuration
 
+- copy the .env.example to the .env for system specific enviroment variables
+
 * Database creation
+
+- rails db:create
 
 * Database initialization
 
-* How to run the test suite
+- rails db:migrate
 
-* Services (job queues, cache servers, search engines, etc.)
+* For running test cases
 
-* Deployment instructions
+- RAILS_ENV=test bundle exec rspec 
 
-* ...
+* Services:
+
+- Added the job for skustats using the sidekiq.

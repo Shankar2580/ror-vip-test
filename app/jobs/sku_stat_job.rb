@@ -1,7 +1,7 @@
 class SkuStatJob < ApplicationJob
   queue_as :default
 
-  def perform(sku)
+  def perform(skus)
     skus.each do |sku|
       calculate(sku)
     end
@@ -21,8 +21,7 @@ class SkuStatJob < ApplicationJob
     end
 
     summary.each do |week, total_quantity|
-      SkuStat.upsert({sku: sku, week: week, total_quantity: total_quantity},
-      unique_by: %i[sku week])
+      SkuStat.upsert({sku: sku, week: week, total_quantity: total_quantity}, unique_by: %i[sku week])
     end
   end
 end
